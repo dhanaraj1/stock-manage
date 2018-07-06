@@ -19,5 +19,6 @@ public final class ApplicationConstants {
 		String TBL_PRODUCT = "tbl_product";
 		String TBL_DISTRIBUTER = "tbl_distributer";
 		String TBL_STOCK = "tbl_stock";
+		String TBL_TRANSACTION = "tbl_transaction";
 	}
 }

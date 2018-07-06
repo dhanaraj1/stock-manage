@@ -7,17 +7,18 @@
  */
 package com.ddesk.stock.repo;
 
-import org.springframework.stereotype.Repository;
+import java.io.Serializable;
 
-import com.ddesk.stock.entity.Distributor;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.NoRepositoryBean;
 
 /**
- * The <code>DistributerRepository</code> responsible for method in
+ * The <code>BaseRepository</code> responsible for method in
  * <b>spring-boot-demo</b> application.
  *
  * @author Rob Atkin
  */
-@Repository
-public interface DistributorRepository extends BaseRepository<Distributor, Long> {
+@NoRepositoryBean
+public interface BaseRepository<T, ID extends Serializable> extends JpaRepository<T, ID> {
 
 }

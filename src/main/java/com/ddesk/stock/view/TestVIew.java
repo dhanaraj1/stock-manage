@@ -8,12 +8,15 @@
 package com.ddesk.stock.view;
 
 import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.ddesk.stock.entity.Product;
-import com.ddesk.stock.util.RepoFactory;
+import com.ddesk.stock.service.ProductService;
+import com.ddesk.stock.util.Notifications;
 
 /**
  * The <code>TestVIew</code> responsible for method in <b>spring-boot-demo</b>
@@ -25,20 +28,41 @@ import com.ddesk.stock.util.RepoFactory;
 public class TestVIew extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private final ProductService productService;
 
 	@Autowired
-	public TestVIew(RepoFactory repoFactory) throws Exception {
+	public TestVIew(ProductService productService) throws Exception {
 		this.setVisible(Boolean.TRUE);
-
-		final Product product = new Product();
-		product.setAmount(Float.valueOf(10));
-		product.setCstValue(Float.valueOf(1));
-		product.setDescription("sdsdsdsd");
-		product.setGstValue(Float.valueOf(1));
-		product.setProductName("test");
-
+		final JTextField productName = new JTextField();
+		productName.setText("");
+		this.productService = productService;
+		saveProduct(productName, new JTextField("12"), new JTextField("4"), new JTextField("65"), new JTextArea("sdsds"));
 		// repoFactory.getProductRepository().save(product);
-		System.out.println(repoFactory.getProductRepository().findById(Long.valueOf(1)));
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see com.ddesk.stock.service.ProductService#saveProduct(javax.swing.
+	 * JTextField, javax.swing.JTextField, javax.swing.JTextField,
+	 * javax.swing.JTextField, javax.swing.JTextArea)
+	 */
+	public void saveProduct(JTextField productName, JTextField gstValue, JTextField cstValue, JTextField amount, JTextArea description) {
+		if (Notifications.isNotEmptyTextFiled(productName) && Notifications.isNotEmptyTextFiled(gstValue)
+				&& Notifications.isNotEmptyTextFiled(cstValue) && Notifications.isNotEmptyTextFiled(amount)) {
+
+			final Product product = new Product();
+
+			product.setAmount(Float.valueOf(amount.getText()));
+			product.setDescription(description.getText());
+			product.setGstValue(Float.valueOf(gstValue.getText()));
+			product.setProductName(productName.getText());
+			product.setCstValue(Float.valueOf(cstValue.getText()));
+
+			productService.saveORupdate(product);
+		}
+
 	}
 
 }

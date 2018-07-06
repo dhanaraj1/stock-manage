@@ -7,7 +7,8 @@
  */
 package com.ddesk.stock.repo;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.ddesk.stock.entity.Product;
@@ -19,6 +20,9 @@ import com.ddesk.stock.entity.Product;
  * @author Rob Atkin
  */
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends BaseRepository<Product, Long> {
 
+	public List<Product> findByProductName(String productName);
+
+	public long countByProductName(String productName);
 }

@@ -9,15 +9,15 @@ package com.ddesk.stock.repo;
 
 import org.springframework.stereotype.Repository;
 
-import com.ddesk.stock.entity.Distributor;
+import com.ddesk.stock.entity.Transaction;
 
 /**
- * The <code>DistributerRepository</code> responsible for method in
+ * The <code>TransactionRepository</code> responsible for method in
  * <b>spring-boot-demo</b> application.
  *
  * @author Rob Atkin
  */
 @Repository
-public interface DistributorRepository extends BaseRepository<Distributor, Long> {
+public interface TransactionRepository extends BaseRepository<Transaction, Long> {
 
 }

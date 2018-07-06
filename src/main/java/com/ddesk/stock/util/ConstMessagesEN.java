@@ -21,6 +21,7 @@ public interface ConstMessagesEN {
 		String NON_ROW_SELECTED = "Non row has been selected";
 		String INFORMATION_TITLE = "Information";
 		String DELETE_ROW_ERROR = "Could not delete a row. Check if there are any connections between tables.";
+		String IS_REQUIRE_FILED = " is required field !";
 	}
 
 	interface Labels {

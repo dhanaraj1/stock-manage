@@ -7,7 +7,6 @@
  */
 package com.ddesk.stock.repo;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.ddesk.stock.entity.Stock;
@@ -19,6 +18,6 @@ import com.ddesk.stock.entity.Stock;
  * @author Rob Atkin
  */
 @Repository
-public interface StockRepository extends JpaRepository<Stock, Long> {
+public interface StockRepository extends BaseRepository<Stock, Long> {
 
 }

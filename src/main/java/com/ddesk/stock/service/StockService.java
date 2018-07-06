@@ -5,19 +5,14 @@
  * prior written consent of XCordis FinTech Ltd. This software is provided under the terms of a license between XCordis FinTech Ltd and the
  * recipient, and its use is subject to the terms of that license.
  */
-package com.ddesk.stock.repo;
-
-import org.springframework.stereotype.Repository;
-
-import com.ddesk.stock.entity.Distributor;
+package com.ddesk.stock.service;
 
 /**
- * The <code>DistributerRepository</code> responsible for method in
+ * The <code>StockService</code> responsible for method in
  * <b>spring-boot-demo</b> application.
  *
  * @author Rob Atkin
  */
-@Repository
-public interface DistributorRepository extends BaseRepository<Distributor, Long> {
+public interface StockService {
 
 }

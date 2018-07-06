@@ -12,6 +12,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -20,68 +22,69 @@ import org.springframework.data.annotation.LastModifiedDate;
 import com.ddesk.stock.util.ApplicationConstants;
 
 /**
- * The <code>Distributer</code> responsible for method in
+ * The <code>Transaction</code> responsible for method in
  * <b>spring-boot-demo</b> application.
  *
  * @author Rob Atkin
  */
 @Entity
-@Table(name = ApplicationConstants.Tables.TBL_DISTRIBUTER)
-public class Distributor {
-
+@Table(name = ApplicationConstants.Tables.TBL_TRANSACTION)
+public class Transaction {
 	@GeneratedValue
 	@Id
-	private long distributorId;
-	private String name;
-	private String mobileNumber;
+	private long transactionId;
+	@ManyToOne
+	@JoinColumn(name = "distributorId")
+	private Distributor distributor;
+	private Float amount;
 	@CreatedDate
 	private Date createdDate;
 	@LastModifiedDate
 	private Date updateDate;
 
 	/**
-	 * @return the distributorId
+	 * @return the transactionId
 	 */
-	public long getDistributorId() {
-		return distributorId;
+	public long getTransactionId() {
+		return transactionId;
 	}
 
 	/**
-	 * @param distributorId
-	 *            the distributorId to set
+	 * @param transactionId
+	 *            the transactionId to set
 	 */
-	public void setDistributorId(long distributorId) {
-		this.distributorId = distributorId;
+	public void setTransactionId(long transactionId) {
+		this.transactionId = transactionId;
 	}
 
 	/**
-	 * @return the name
+	 * @return the distributor
 	 */
-	public String getName() {
-		return name;
+	public Distributor getDistributor() {
+		return distributor;
 	}
 
 	/**
-	 * @param name
-	 *            the name to set
+	 * @param distributor
+	 *            the distributor to set
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setDistributor(Distributor distributor) {
+		this.distributor = distributor;
 	}
 
 	/**
-	 * @return the mobileNumber
+	 * @return the amount
 	 */
-	public String getMobileNumber() {
-		return mobileNumber;
+	public Float getAmount() {
+		return amount;
 	}
 
 	/**
-	 * @param mobileNumber
-	 *            the mobileNumber to set
+	 * @param amount
+	 *            the amount to set
 	 */
-	public void setMobileNumber(String mobileNumber) {
-		this.mobileNumber = mobileNumber;
+	public void setAmount(Float amount) {
+		this.amount = amount;
 	}
 
 	/**

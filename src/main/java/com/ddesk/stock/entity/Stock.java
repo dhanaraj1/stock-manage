@@ -7,12 +7,17 @@
  */
 package com.ddesk.stock.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import com.ddesk.stock.util.ApplicationConstants;
 
@@ -33,12 +38,18 @@ public class Stock {
 	@JoinColumn(name = "productId")
 	private Product product;
 	@ManyToOne
-	@JoinColumn(name = "distributerId")
-	private Distributor distributer;
-	private Integer quatity;
+	@JoinColumn(name = "distributorId")
+	private Distributor distributor;
+	private Integer initialQuatity;
+	private Integer existingQuantity;
 	private Float totalCst;
 	private Float totalGst;
 	private Float totalGrossValue;
+	@CreatedDate
+	private Date createdDate;
+	@LastModifiedDate
+	private Date updateDate;
+	private String refId;
 
 	/**
 	 * @return the stockId
@@ -71,33 +82,78 @@ public class Stock {
 	}
 
 	/**
-	 * @return the distributer
+	 * @return the distributor
 	 */
-	public Distributor getDistributer() {
-		return distributer;
+	public Distributor getDistributor() {
+		return distributor;
 	}
 
 	/**
-	 * @param distributer
-	 *            the distributer to set
+	 * @param distributor
+	 *            the distributor to set
 	 */
-	public void setDistributer(Distributor distributer) {
-		this.distributer = distributer;
+	public void setDistributor(Distributor distributor) {
+		this.distributor = distributor;
 	}
 
 	/**
-	 * @return the quatity
+	 * @return the initialQuatity
 	 */
-	public Integer getQuatity() {
-		return quatity;
+	public Integer getInitialQuatity() {
+		return initialQuatity;
 	}
 
 	/**
-	 * @param quatity
-	 *            the quatity to set
+	 * @param initialQuatity
+	 *            the initialQuatity to set
 	 */
-	public void setQuatity(Integer quatity) {
-		this.quatity = quatity;
+	public void setInitialQuatity(Integer initialQuatity) {
+		this.initialQuatity = initialQuatity;
+	}
+
+	/**
+	 * @return the existingQuantity
+	 */
+	public Integer getExistingQuantity() {
+		return existingQuantity;
+	}
+
+	/**
+	 * @param existingQuantity
+	 *            the existingQuantity to set
+	 */
+	public void setExistingQuantity(Integer existingQuantity) {
+		this.existingQuantity = existingQuantity;
+	}
+
+	/**
+	 * @return the createdDate
+	 */
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	/**
+	 * @param createdDate
+	 *            the createdDate to set
+	 */
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	/**
+	 * @return the updateDate
+	 */
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+
+	/**
+	 * @param updateDate
+	 *            the updateDate to set
+	 */
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
 	}
 
 	/**
@@ -143,6 +199,21 @@ public class Stock {
 	 */
 	public void setTotalGrossValue(Float totalGrossValue) {
 		this.totalGrossValue = totalGrossValue;
+	}
+
+	/**
+	 * @return the refId
+	 */
+	public String getRefId() {
+		return refId;
+	}
+
+	/**
+	 * @param refId
+	 *            the refId to set
+	 */
+	public void setRefId(String refId) {
+		this.refId = refId;
 	}
 
 }
