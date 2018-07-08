@@ -8,6 +8,7 @@
 package com.ddesk.stock.service;
 
 import com.ddesk.stock.entity.Product;
+import java.util.List;
 
 /**
  * The <code>ProductService</code> responsible for method in

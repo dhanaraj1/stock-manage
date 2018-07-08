@@ -35,10 +35,10 @@ public class TestVIew extends JFrame {
 		this.setVisible(Boolean.TRUE);
 		final JTextField productName = new JTextField();
 		productName.setText("");
+                productName.setName("ProductName");
 		this.productService = productService;
-		saveProduct(productName, new JTextField("12"), new JTextField("4"), new JTextField("65"), new JTextArea("sdsds"));
-		// repoFactory.getProductRepository().save(product);
-
+		
+                System.out.println("com.ddesk.stock.view.TestVIew.<init>()" +productService.findAll().size());
 	}
 
 	/*

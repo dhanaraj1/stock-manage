@@ -21,12 +21,13 @@ public class Notifications {
 
 	public static Boolean isNotEmptyTextFiled(JTextField jTextField) {
 		Boolean valid = Boolean.TRUE;
-		System.out.println(jTextField.getText().length());
-		if (jTextField.getText() == null && jTextField.getText().length() <= 1) {
+		        
+		if (jTextField.getName() != null && jTextField.getText().length() <= 1) {
 			JOptionPane.showMessageDialog(null, splitCamelCase(jTextField.getName()) + ConstMessagesEN.Messages.IS_REQUIRE_FILED,
 					ConstMessagesEN.Messages.ALERT_TILE, JOptionPane.ERROR_MESSAGE);
 			valid = Boolean.FALSE;
 			jTextField.requestFocus();
+                        System.out.println(jTextField.getText().length());
 		}
 		return valid;
 	}

@@ -22,6 +22,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import com.ddesk.stock.util.ApplicationConstants;
+import javax.persistence.Transient;
+import org.hibernate.annotations.Formula;
 
 /**
  * The <code>Product</code> responsible for method in <b>spring-boot-demo</b>
@@ -48,6 +50,8 @@ public class Product {
 	private Date createdDate;
 	@LastModifiedDate
 	private Date updateDate;
+        @Formula("select COALESCE(sum(s.existing_quantity),0) from tbl_stock s inner join tbl_product p on p.product_id=s.product_id ")
+        private int availableStock;
 
 	/**
 	 * @return the productId
@@ -183,6 +187,14 @@ public class Product {
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
+
+    public int getAvailableStock() {
+        return availableStock;
+    }
+
+    public void setAvailableStock(int availableStock) {
+        this.availableStock = availableStock;
+    }
 
 	/*
 	 * (non-Javadoc)

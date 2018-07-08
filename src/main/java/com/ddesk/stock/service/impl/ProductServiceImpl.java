@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import com.ddesk.stock.entity.Product;
 import com.ddesk.stock.repo.ProductRepository;
 import com.ddesk.stock.service.ProductService;
+import java.util.List;
 
 /**
  * The <code>ProductServiceImpl</code> responsible for method in
@@ -32,5 +33,9 @@ public class ProductServiceImpl extends BaseSerivceImpl<Product, Long> implement
 	public void init() {
 		baseRepo = productRepository;
 	}
+
+    public List<Product> findAllByAvailableStock() {
+      return null;
+    }
 
 }

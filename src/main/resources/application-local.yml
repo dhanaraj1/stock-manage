@@ -5,8 +5,7 @@ spring:
     username: sa
     password:
     driver-class-name: org.h2.Driver
-    schema: /sql/dev/schema-h2.sql
-    data: /sql/dev/data-h2.sql
+    
   jpa:
     hibernate:
       ddl-auto: update

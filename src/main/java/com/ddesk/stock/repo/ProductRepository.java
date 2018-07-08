@@ -12,6 +12,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.ddesk.stock.entity.Product;
+import org.springframework.data.jpa.repository.Query;
 
 /**
  * The <code>ProductRepository</code> responsible for method in
@@ -25,4 +26,5 @@ public interface ProductRepository extends BaseRepository<Product, Long> {
 	public List<Product> findByProductName(String productName);
 
 	public long countByProductName(String productName);
+    
 }
